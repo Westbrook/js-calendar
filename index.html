@@ -1,0 +1,63 @@
+<body>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        button {
+            background: none;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+        .calendar {
+            display: flex;
+        }
+        .calendar__day {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            width: 125px;
+        }
+        .calendar__day__number {
+            font-size: 4em;
+            height: 150px;
+            line-height: 150px;
+        }
+        .calendar__month {
+            display: flex;
+            flex-wrap: wrap;
+            width: 175px;
+        }
+        .calendar__month__header {
+            display: flex;
+            width: 100%;
+        }
+        .calendar__button {
+            flex-shrink: 0;
+            text-align: center;
+            width: 25px;
+        }
+        .calendar__month__name {
+            flex-grow: 1;
+            text-align: center;
+        }
+        .calendar__month__day {
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            width: 25px;
+        }
+        .day--curent,
+        .day--date {
+            cursor: pointer;
+        }
+        .day--current {
+            background: red;
+            color: white;
+        }
+    </style>
+    <script src="js-calendar.js"></script>
+    <script>
+        var calendar = new Calendar();
+    </script>
+</body>
