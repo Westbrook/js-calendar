@@ -2,58 +2,135 @@
     <style>
         body {
             font-family: sans-serif;
+            background: #efefef;
         }
         button {
             background: none;
             border: none;
+            color: inherit;
             margin: 0;
             padding: 0;
         }
         .calendar {
+            justify-content: space-between;
+            background: black;
+            border-radius: 5px;
             display: flex;
+            overflow: hidden;
+            padding: 3px;
+            max-width: 488px;
+            width: 100%;
         }
         .calendar__day {
+            background: white;
+            border-radius: 5px;
             display: flex;
             flex-direction: column;
+            flex-grow: 1;
+            margin-right: 3px;
+            overflow: hidden;
+            position: relative;
             text-align: center;
-            width: 125px;
+        }
+        .calendar__day__name {
+            background: #ff3232;
+            background: linear-gradient(to bottom, #ff3232 0%,#b50300 100%);
+            color: white;
+            line-height: 40px;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.25);
         }
         .calendar__day__number {
-            font-size: 4em;
-            height: 150px;
-            line-height: 150px;
+            color: rgba(0,0,0, 0.7);
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            font-size: 5em;
+            font-weight: bold;
+            justify-content: center;
+            padding-bottom: 20px;
+            text-shadow: 1px 1px 4px #fff, 0 0 0 #000, 1px 1px 4px #fff;
+        }
+        .calendar__day__name:after,
+        .calendar__day__number:before,
+        .calendar__day__number:after {
+            border-bottom: 1px solid #eee;
+            border-radius: 5px;
+            bottom: 4px;
+            content: '';
+            height: 10px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+        .calendar__day__name:after {
+            bottom: 2px;
+        }
+        .calendar__day__number:after {
+            bottom: 6px;
         }
         .calendar__month {
+            background: white;
+            border-radius: 5px;
+            color: #999;
             display: flex;
             flex-wrap: wrap;
-            width: 175px;
+            font-size: 0.9em;
+            overflow: hidden;
+            padding: 0 0 10px;
+            width: 280px;
         }
         .calendar__month__header {
+            background: white;
             display: flex;
+            line-height: 40px;
+            padding: 0 0 5px;
+            text-transform: uppercase;
             width: 100%;
         }
         .calendar__button {
             flex-shrink: 0;
+            margin-top: -3px;
             text-align: center;
-            width: 25px;
+            width: 14.285%;
         }
         .calendar__month__name {
             flex-grow: 1;
             text-align: center;
         }
         .calendar__month__day {
+            border-right: 1px solid #eee;
+            box-sizing: border-box;
             height: 25px;
             line-height: 25px;
             text-align: center;
-            width: 25px;
+            width: 14.285%;
+        }
+        .calendar__month__day:nth-of-type(7n) {
+            border-right: none;
+        }
+        .day--name {
+            color: #D60000;
+            font-weight: bold;
         }
         .day--curent,
         .day--date {
             cursor: pointer;
         }
         .day--current {
-            background: red;
+            background: #D60000;
             color: white;
+        }
+        @media only screen and (max-width: 450px) {
+            .calendar {
+                flex-direction: column;
+            }
+            .calendar__day {
+                margin: 0 0 3px;
+                width: 100%;
+            }
+            .calendar__month {
+                width: 100%;
+            }
         }
     </style>
     <script src="js-calendar.js"></script>

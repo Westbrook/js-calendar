@@ -183,5 +183,5 @@ Calendar.prototype.renderDay = function() {
         <div class="calendar__day__name">Monday</div>
         <div class="calendar__day__number">1</div>
     */
-    this.dayDOM.innerHTML = '<div class="calendar__day__name">' + this.day + '</div><div class="calendar__day__number">' + this.date + '</div>';
+    this.dayDOM.innerHTML = '<div class="calendar__day__name">' + this.day + '</div><div class="calendar__day__number"><span>' + this.date + '</span></div>';
 };
