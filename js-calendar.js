@@ -32,6 +32,7 @@ Calendar.prototype.destroy = function() {
 Calendar.prototype.addEventListeners = function() {
     //bind event listeners
     this.dom.addEventListener('click', this.clickHandler.bind(this), false);
+    document.body.addEventListener('keyup', this.keyupHandler.bind(this), false);
 };
 
 Calendar.prototype.clickHandler = function(e) {
@@ -65,9 +66,23 @@ Calendar.prototype.focusMonth = function(direction) {
     this.renderMonth();
 };
 
+Calendar.prototype.keyupHandler = function(e) {
+    var key = event.keyCode || event.which;
+    console.log(key);
+    switch (key) {
+    case 37:
+        this.focusMonth(-1);
+        break;
+    case 39:
+        this.focusMonth(1);
+        break;
+    }
+};
+
 Calendar.prototype.removeEventListeners = function() {
     //unbind event listeners
     this.dom.removeEventListener('click', this.clickHandler, false);
+    document.body.removeEventListener('keyup', this.keyupHandler, false);
 };
 
 Calendar.prototype.setToday = function(today) {
